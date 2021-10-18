@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+  }
+  .dcard{
+    background-color: white;
+  }
+  .cardlist{
+    padding: 20px;
+  }
+  .deleteIcon{
+      color:#E30425;
+  }
