@@ -1,1 +1,19 @@
-<p>sidebar works!</p>
+<mat-nav-list>
+    <div class="profile">
+        <div class="header">
+            <h2>
+                Varun Alla
+            </h2>
+            <h3>
+                @varun_alla
+            </h3>      
+        </div>
+    </div>   
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLink="/dashboard">Dashboard <span class="spacer"></span> </a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLink="/uploadfile">Upload <span class="spacer"></span><mat-icon>upload_file</mat-icon> </a>
+    <mat-divider></mat-divider>
+    <a mat-list-item>Logout <span class="spacer"></span> <mat-icon>logout</mat-icon> </a>
+    <mat-divider></mat-divider>
+</mat-nav-list>

@@ -1,6 +1,11 @@
+<app-header></app-header>
 
-<nav>
-  <a class="button" routerLink="/dashboard">Dashboard</a>
-  <a class="button" routerLink="/uploadfile">Upload</a> 
-</nav>
+<mat-drawer-container>
+    <mat-drawer mode="side" opened><app-sidebar></app-sidebar></mat-drawer>
+<mat-drawer-content>
+    <mat-divider></mat-divider>
+</mat-drawer-content>
+</mat-drawer-container>
+<app-footer></app-footer>
+
 <router-outlet></router-outlet>
