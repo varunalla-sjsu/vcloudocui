@@ -14,6 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from './material/material.module';
 import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component';
 
+import { NgxFileDropModule } from 'ngx-file-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgxFileDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

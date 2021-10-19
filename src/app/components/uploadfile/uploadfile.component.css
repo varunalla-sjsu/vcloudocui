@@ -1,0 +1,28 @@
+
+.spacer{
+    flex: 1 1 auto;
+}
+.uploadbtn{
+    margin:10px;
+}
+
+.emptyline{
+    height:50px;
+}
+.dropzone{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 2px dotted green;
+}
+.uploadtoolbar{
+    background-color: white;
+}
+.container{
+    flex: 1 1 auto;
+  /*  height: 100px;*/
+}
+.browseBtn{
+   align-items: center;
+}
