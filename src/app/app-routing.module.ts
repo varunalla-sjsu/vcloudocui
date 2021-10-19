@@ -7,10 +7,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UploadfileComponent } from './components/uploadfile/uploadfile.component';
 const routes: Routes = [
   {path:'',redirectTo:'/dashboard', pathMatch:'full'},
-  {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},
-  {path:'uploadfile',component:UploadfileComponent, canActivate:[AuthGuard]},
-
-  {path:'admin',component:AdminComponent, canActivate:[AuthGuard,AdminGuard]}
+  {path:'dashboard',component:DashboardComponent},
+  {path:'uploadfile',component:UploadfileComponent}
 ];
 
 @NgModule({

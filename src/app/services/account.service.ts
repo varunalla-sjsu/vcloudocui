@@ -11,6 +11,9 @@ export class AccountService {
   getLoggedInUser(): account{
     return this.laccount;
   }
+  helloWorld(){
+    this.http.get('https://api.vcloudoc.com/home').subscribe(data=>console.log(data),err=>console.log(err));
+  }
   isAuthenticated(): boolean{
     return true;
   }

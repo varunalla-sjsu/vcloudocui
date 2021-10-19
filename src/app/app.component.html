@@ -5,14 +5,11 @@
 <div *ngIf="authState === 'signedin' && user" class="App">
     <!-- This is where you application template code goes class="App"-->  
     <app-header></app-header>
-
-<mat-drawer-container>
-    <mat-drawer mode="side" opened><app-sidebar></app-sidebar></mat-drawer>
-<mat-drawer-content>
-
-<router-outlet></router-outlet>
-</mat-drawer-content>
-</mat-drawer-container>
-
-<app-footer></app-footer>
+    <mat-drawer-container>
+            <mat-drawer mode="side" opened><app-sidebar></app-sidebar></mat-drawer>
+            <mat-drawer-content>
+                <router-outlet></router-outlet>
+            </mat-drawer-content>
+    </mat-drawer-container>
+    <app-footer></app-footer>
 </div>
