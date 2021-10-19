@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './auth/admin.guard';
 import { AuthGuard } from './auth/auth.guard';
 import {AdminComponent} from './components/admin/admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -9,7 +10,7 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},
   {path:'uploadfile',component:UploadfileComponent, canActivate:[AuthGuard]},
 
-  {path:'admin',component:AdminComponent, canActivate:[AuthGuard]}
+  {path:'admin',component:AdminComponent, canActivate:[AuthGuard,AdminGuard]}
 ];
 
 @NgModule({
