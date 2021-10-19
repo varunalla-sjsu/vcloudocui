@@ -15,6 +15,11 @@ import { MaterialModule } from './material/material.module';
 import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+//import { Amplify } from '@aws-amplify/core';
+import {Amplify} from 'aws-amplify';
+import {AmplifyConfig} from './config/aws-exports';
+Amplify.configure(AmplifyConfig);
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,8 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     BrowserAnimationsModule,
     MaterialModule,
     NgxFileDropModule,
-    HttpClientModule
+    HttpClientModule,
+    AmplifyUIAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
