@@ -13,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from './material/material.module';
 import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { NgxFileDropModule } from 'ngx-file-drop';
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
