@@ -6,15 +6,15 @@ import { account, Role } from '../models/account';
   providedIn: 'root'
 })
 export class AccountService {
-
+  laccount: account={firstName:'Varun',lastName:'Alla',username:'varunalla',userId:'1000',userRole:Role.User,isActive:false};
   constructor(private http:HttpClient) { }
   getLoggedInUser(): account{
-    return {firstName:'',lastName:'',username:'',userId:'',userRole:Role.User,isActive:false};
+    return this.laccount;
   }
   isAuthenticated(): boolean{
     return true;
   }
   isAdmin(): boolean{
-    return false;
+    return this.laccount.userRole===Role.Admin;
   }
 }
