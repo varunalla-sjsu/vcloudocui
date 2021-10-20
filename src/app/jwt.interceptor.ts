@@ -25,7 +25,8 @@ export class JwtInterceptor implements HttpInterceptor {
 
     // if your getAuthToken() function declared to return an observable then you can use
     // await this.auth.getAuthToken().toPromise()
-
+    if (req.url.indexOf('s3-accelerate.amazonaws.com'))
+      return next.handle(req).toPromise();
     const authReq = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token.getIdToken().getJwtToken()}`
