@@ -10,9 +10,9 @@
         </div>
     </div>   
     <mat-divider></mat-divider>
-    <a mat-list-item routerLink="/dashboard">Dashboard <span class="spacer"></span> <mat-icon>dashboard</mat-icon></a>
+    <a mat-list-item routerLink="/dashboard"><span *ngIf="isAdmin">Admin </span>Dashboard <span class="spacer"></span> <mat-icon>dashboard</mat-icon></a>
     <mat-divider></mat-divider>
-    <a mat-list-item routerLink="/uploadfile">Upload <span class="spacer"></span><mat-icon>upload_file</mat-icon> </a>
+    <a mat-list-item  *ngIf="!isAdmin" routerLink="/uploadfile">Upload <span class="spacer"></span><mat-icon>upload_file</mat-icon> </a>
     <mat-divider></mat-divider>
  <!--   <div *ngIf="isAdmin">
     <a mat-list-item routerLink="/admin">Admin Console<span class="spacer"></span><mat-icon>admin_panel_settings</mat-icon> </a>
