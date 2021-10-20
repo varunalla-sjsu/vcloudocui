@@ -20,7 +20,7 @@ export class FileService {
     //build request
     return  this.http.post<string>(this.apiEndpoint+'/upload/sign',{
       filename:filename,
-      contenttype:contentType,
+      contentType:contentType,
       description:description
     })
   }

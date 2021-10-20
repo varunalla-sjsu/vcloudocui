@@ -14,13 +14,19 @@ export class UploadfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public uploadFile(){
+  public uploadFile(description:string){
     console.log('upload clicked');
+    description="test description";
     let file:NgxFileDropEntry=this.files[0];
-    let filename=file.fileEntry.name;
-    this.fileService.getPreSignedUrl(filename,'text/plain','test description').subscribe((preSignedUrl:string)=>{
-      console.log(preSignedUrl);
-    });
+    let filename=file;
+    const fileEntry = file.fileEntry as FileSystemFileEntry;
+    
+        fileEntry.file((file: File) => {
+          this.fileService.getPreSignedUrl(file.name,file.type,description).subscribe((preSignedUrl:string)=>{
+            console.log(preSignedUrl);
+          });
+        });
+    
   }
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
