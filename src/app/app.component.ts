@@ -11,7 +11,7 @@ export class AppComponent {
   user: CognitoUserInterface | undefined;
   authState: AuthState=AuthState.Loading;
   formFields: FormFieldTypes;
-  constructor(private ref: ChangeDetectorRef,private ngZone:NgZone) {
+  constructor(private ref: ChangeDetectorRef,private ngZone:NgZone,private accountService:AccountService) {
     this.formFields = [
       { type: "username" },
       { type: "password" },
@@ -21,6 +21,7 @@ export class AppComponent {
     ];
   }
   ngOnInit() {
+    this.accountService.getLoggedInUser();
     onAuthUIStateChange((authState, authData) => {
       this.authState = authState;
       this.user = authData as CognitoUserInterface;
