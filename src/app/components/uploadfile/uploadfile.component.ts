@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { FileService } from 'src/app/services/file.service';
 
@@ -10,7 +12,7 @@ import { FileService } from 'src/app/services/file.service';
 export class UploadfileComponent implements OnInit {
   description!:string;
   public files: NgxFileDropEntry[] = [];
-  constructor(private fileService:FileService) { }
+  constructor(private fileService:FileService,private router: Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +35,9 @@ export class UploadfileComponent implements OnInit {
             formData.append('file',file);
             this.fileService.uploadFile(psurl.url,file,header).subscribe((data:any)=>{
               console.log('uploaded');
+              this._snackBar.open('File Uploaded', 'Dismiss');
+              
+              this.router.navigate(['/dashboard']);
             })
           });
         });
