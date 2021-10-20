@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Update File</h1>
+<div mat-dialog-content>
+    Name: {{data.file.origFileName}}<br/>
+    uploadedBy: {{data.file.createdby.user}}<br/>
+
+    <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" />
+</div>
