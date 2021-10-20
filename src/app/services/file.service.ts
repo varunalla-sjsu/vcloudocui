@@ -24,6 +24,9 @@ export class FileService {
       description:description
     })
   }
+  uploadFile(url:string,body:any,headers:any){
+    return this.http.put(url,body,{headers});
+  }
 }
 
 //const DummyData: vFile[]=[{fileName:'Test.jpg',action:'',uploadTime:new Date(),uploadedBy:'Varun Alla'}]
