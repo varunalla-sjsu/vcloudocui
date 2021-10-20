@@ -19,7 +19,7 @@ export class FileService {
   }
   getPreSignedUrl(filename:string ,contentType:string ,description:string,isUpdate:boolean){
     //build request
-    return  this.http.post<string>(this.apiEndpoint+'/upload/sign',{
+    return  this.http.post<string>(this.apiEndpoint+'/uploadsign',{
       filename:filename,
       contentType:contentType,
       description:description,
