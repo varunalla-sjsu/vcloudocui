@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { account, Role } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
@@ -7,12 +8,16 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  isAdmin: boolean;
+  isAdmin: boolean=false;
+  user!:account;
   constructor(private accountService:AccountService) {
-     this.isAdmin=this.accountService.isAdmin();
    }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.user=await this.accountService.getLoggedInUser().toPromise();
+    if(this.user.Role==Role.Admin){
+      this.isAdmin=true;
+    }
   }
 
 }
