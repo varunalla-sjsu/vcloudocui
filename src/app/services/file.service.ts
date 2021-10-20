@@ -31,6 +31,9 @@ export class FileService {
   downloadUrl(filename:string){
     return this.http.post(this.apiEndpoint+'/downloadsign',{fileName:filename});
   }
+  deleteFile(filename:string){
+    return this.http.post(this.apiEndpoint+'/deletefile',{fileName:filename});
+  }
 }
 
 //const DummyData: vFile[]=[{fileName:'Test.jpg',action:'',uploadTime:new Date(),uploadedBy:'Varun Alla'}]
