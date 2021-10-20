@@ -25,6 +25,8 @@ export class FilelistComponent implements OnInit {
   downloadUrl(id:vFile){
     this.fileService.downloadUrl(id.fileid).subscribe((data:any)=>{
       console.log(data);
+
+      window.open(data.fileUrl, "_blank");
     });
   }
 
