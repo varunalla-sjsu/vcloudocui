@@ -18,7 +18,7 @@ export class FileService {
   }
   getPreSignedUrl(filename:string ,contentType:string ,description:string){
     //build request
-    return  this.http.post<string>(this.apiEndpoint+'/files/presignupload',{
+    return  this.http.post<string>(this.apiEndpoint+'/upload/sign',{
       filename:filename,
       contenttype:contentType,
       description:description
