@@ -33,7 +33,6 @@ export class UploadfileComponent implements OnInit {
             formData.append('file',file);
             this.fileService.uploadFile(psurl.url,file,header).subscribe((data:any)=>{
               console.log('uploaded');
-              window.open(data.fileUrl, "_blank");
             })
           });
         });
