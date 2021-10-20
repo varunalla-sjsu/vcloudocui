@@ -1,5 +1,5 @@
 # VcloudocUi
-[![Actions Status](https://github.com/varunalla-sjsu/vcloudocui/workflows/VCloudui%20PRod/badge.svg)](https://github.com/varunalla-sjsu/vcloudocui/actions)
+[![Actions Status](https://github.com/varunalla-sjsu/vcloudocui/workflows/VCloudui%20Prod/badge.svg)](https://github.com/varunalla-sjsu/vcloudocui/actions)
 
 
 ## Development server
