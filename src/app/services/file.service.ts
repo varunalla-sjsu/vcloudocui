@@ -3,6 +3,7 @@ import { vFile } from '../models/vFile';
 
 import { Observable,of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,9 @@ export class FileService {
   }
   uploadFile(url:string,body:any,headers:any){
     return this.http.put(url,body,{headers});
+  }
+  downloadUrl(filename:string){
+    return this.http.post(this.apiEndpoint+'/downloadsign',{fileName:filename});
   }
 }
 
