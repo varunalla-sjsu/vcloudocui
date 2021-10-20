@@ -45,4 +45,5 @@ testem.log
 Thumbs.db
 
 
-#aws config
+#environment variables
+.env

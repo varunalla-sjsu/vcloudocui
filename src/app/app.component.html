@@ -1,6 +1,13 @@
 
 <amplify-auth-container>
-<amplify-authenticator *ngIf="authState !== 'signedin'"></amplify-authenticator>
+<amplify-authenticator *ngIf="authState !== 'signedin'">
+    <amplify-sign-up
+    header-text="VCloudDoc Signup"
+    slot="sign-up"
+    [formFields]="formFields"
+    
+  ></amplify-sign-up>
+</amplify-authenticator>
 </amplify-auth-container>
 <div *ngIf="authState === 'signedin' && user" class="App">
     <!-- This is where you application template code goes class="App"-->  

@@ -33,6 +33,6 @@ export class JwtInterceptor implements HttpInterceptor {
     })
 
     // Important: Note the .toPromise()
-    return next.handle(req).toPromise()
+    return next.handle(authReq).toPromise()
   }
 }
