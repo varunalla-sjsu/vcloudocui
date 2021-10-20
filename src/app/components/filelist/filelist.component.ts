@@ -29,5 +29,11 @@ export class FilelistComponent implements OnInit {
       window.open(data.fileUrl, "_blank");
     });
   }
+  deleteFile(file:vFile){
+    this.fileService.deleteFile(file.fileid).subscribe((data:any)=>{
+      console.log(data);
+
+    });
+  }
 
 }
