@@ -17,12 +17,13 @@ export class FileService {
   getFiles(){
     return this.http.get<vFile[]>(this.apiEndpoint+'/files');
   }
-  getPreSignedUrl(filename:string ,contentType:string ,description:string){
+  getPreSignedUrl(filename:string ,contentType:string ,description:string,isUpdate:boolean){
     //build request
     return  this.http.post<string>(this.apiEndpoint+'/upload/sign',{
       filename:filename,
       contentType:contentType,
-      description:description
+      description:description,
+      isUpdate:isUpdate
     })
   }
   uploadFile(url:string,body:any,headers:any){

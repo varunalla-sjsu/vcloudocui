@@ -24,7 +24,7 @@ export class UploadfileComponent implements OnInit {
     const fileEntry = file.fileEntry as FileSystemFileEntry;
     
         fileEntry.file((file: File) => {
-          this.fileService.getPreSignedUrl(file.name,file.type,description).subscribe((psurl:any)=>{
+          this.fileService.getPreSignedUrl(file.name,file.type,description,false).subscribe((psurl:any)=>{
             console.log(psurl);
 
         let header = new Headers();
@@ -38,7 +38,7 @@ export class UploadfileComponent implements OnInit {
               this._snackBar.open('File Uploaded', 'Dismiss');
               
               this.router.navigate(['/dashboard']);
-            })
+            });
           });
         });
     

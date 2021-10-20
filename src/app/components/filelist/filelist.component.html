@@ -29,7 +29,7 @@
            <!-- Action Column Column -->
            <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
-            <td mat-cell *matCellDef="let element"> <mat-icon class="deleteIcon" (click)="deleteFile(element)">delete</mat-icon><mat-icon class="downloadIcon" (click)="downloadUrl(element)">download</mat-icon></td>
+            <td mat-cell *matCellDef="let element"><mat-icon class="downloadIcon" (click)="downloadUrl(element)">download</mat-icon> <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event,element)" name="uploadFile" /> <mat-icon class="deleteIcon" (click)="deleteFile(element)">delete</mat-icon></td>
   
           </ng-container>
           <tr class="mat-row" *matNoDataRow>
