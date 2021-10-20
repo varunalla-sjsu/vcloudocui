@@ -22,5 +22,10 @@ export class FilelistComponent implements OnInit {
   ngAfterViewInit(){
       this.dataSource.paginator=this.paginator;
   }
+  downloadUrl(id:vFile){
+    this.fileService.downloadUrl(id.fileid).subscribe((data:any)=>{
+      console.log(data);
+    });
+  }
 
 }

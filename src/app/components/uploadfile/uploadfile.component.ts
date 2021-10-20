@@ -24,13 +24,14 @@ export class UploadfileComponent implements OnInit {
         fileEntry.file((file: File) => {
           this.fileService.getPreSignedUrl(file.name,file.type,description).subscribe((psurl:any)=>{
             console.log(psurl);
-            let headers={
-                contentType: file.type,
-                contentDisposition: 'attachment; filename="'+file.name+'"'
-            }
+
+        let header = new Headers();
+        header.append('Content-Type', file.type);
+        header.append('Content-Disposition','attachment; filename="'+file.name+'"');
+            
             const formData=new FormData();
             formData.append('file',file);
-            this.fileService.uploadFile(psurl.url,formData,headers).subscribe((data)=>{
+            this.fileService.uploadFile(psurl.url,file,header).subscribe((data)=>{
               console.log('uploaded');
             })
           });
