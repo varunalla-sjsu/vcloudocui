@@ -1,5 +1,6 @@
 # VcloudocUi
-
+[[![build status](https://github.com/varunalla-sjsu/vcloudocui/workflows/Build/badge.svg)](https://github.com/varunalla-sjsu/vcloudocui/actions)
+]
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 
 ## Development server
