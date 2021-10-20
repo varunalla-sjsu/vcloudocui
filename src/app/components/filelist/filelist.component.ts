@@ -15,12 +15,15 @@ export class FilelistComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private fileService: FileService){}
   ngOnInit(): void {
-    this.fileService.getFiles().subscribe((response:vFile[])=>{
-         this.dataSource=new MatTableDataSource<vFile>(response);
-    });
+    this.updateFiles();
   }
   ngAfterViewInit(){
       this.dataSource.paginator=this.paginator;
+  }
+  updateFiles(){
+    this.fileService.getFiles().subscribe((response:vFile[])=>{
+      this.dataSource=new MatTableDataSource<vFile>(response);
+    });
   }
   downloadUrl(id:vFile){
     this.fileService.downloadUrl(id.fileid).subscribe((data:any)=>{
@@ -32,7 +35,7 @@ export class FilelistComponent implements OnInit {
   deleteFile(file:vFile){
     this.fileService.deleteFile(file.fileid).subscribe((data:any)=>{
       console.log(data);
-
+      
     });
   }
 
