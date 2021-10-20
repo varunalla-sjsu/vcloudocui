@@ -8,7 +8,7 @@ import { FileService } from 'src/app/services/file.service';
   styleUrls: ['./uploadfile.component.css']
 })
 export class UploadfileComponent implements OnInit {
-
+  description!:string;
   public files: NgxFileDropEntry[] = [];
   constructor(private fileService:FileService) { }
 
@@ -16,11 +16,17 @@ export class UploadfileComponent implements OnInit {
   }
   public uploadFile(){
     console.log('upload clicked');
+    let description=this.description||"";
     let file:NgxFileDropEntry=this.files[0];
-    let filename=file.fileEntry.name;
-    this.fileService.getPreSignedUrl(filename,'text/plain','test description').subscribe((preSignedUrl:string)=>{
-      console.log(preSignedUrl);
-    });
+    let filename=file;
+    const fileEntry = file.fileEntry as FileSystemFileEntry;
+    
+        fileEntry.file((file: File) => {
+          this.fileService.getPreSignedUrl(file.name,file.type,description).subscribe((preSignedUrl:string)=>{
+            console.log(preSignedUrl);
+          });
+        });
+    
   }
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;

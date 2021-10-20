@@ -21,6 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {Amplify} from 'aws-amplify';
 import {AmplifyConfig} from './config/aws-exports';
 import { JwtInterceptor } from './jwt.interceptor';
+import { FormsModule } from '@angular/forms';
+
 Amplify.configure(AmplifyConfig);
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ Amplify.configure(AmplifyConfig);
     MaterialModule,
     NgxFileDropModule,
     HttpClientModule,
-    AmplifyUIAngularModule
+    AmplifyUIAngularModule,
+    FormsModule
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,
