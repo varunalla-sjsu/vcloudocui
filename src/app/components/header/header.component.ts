@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { account } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
@@ -7,11 +8,11 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  user!:account;
   constructor(private accountService:AccountService) { }
 
-  ngOnInit(): void {
-    this.accountService.helloWorld();
+  async ngOnInit(): Promise<void> {
+    let user= await this.accountService.getLoggedInUser().toPromise();
   }
 
 }

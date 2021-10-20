@@ -4,9 +4,8 @@ export enum Role {
 }
 export interface account{
     username: string;
-    firstName:string;
-    lastName:string;
-    userId:string;
+    firstname:string;
+    lastname:string;
     isActive:boolean;
-    userRole:Role;
+    Role:Role;
 }
