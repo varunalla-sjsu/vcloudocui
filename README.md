@@ -1,6 +1,6 @@
 # VcloudocUi
 
-
+[![vcloudui_prod](https://github.com/varunalla-sjsu/vcloudocui/actions/workflows/main.yml/badge.svg?branch=production)](https://github.com/varunalla-sjsu/vcloudocui/actions/workflows/main.yml)
 
 ## Development server
 
