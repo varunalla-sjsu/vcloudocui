@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import { FileService } from 'src/app/services/file.service';
 
 @Component({
   selector: 'app-uploadfile',
@@ -9,9 +10,17 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 export class UploadfileComponent implements OnInit {
 
   public files: NgxFileDropEntry[] = [];
-  constructor() { }
+  constructor(private fileService:FileService) { }
 
   ngOnInit(): void {
+  }
+  public uploadFile(){
+    console.log('upload clicked');
+    let file:NgxFileDropEntry=this.files[0];
+    let filename=file.fileEntry.name;
+    this.fileService.getPreSignedUrl(filename,'text/plain','test description').subscribe((preSignedUrl:string)=>{
+      console.log(preSignedUrl);
+    });
   }
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;

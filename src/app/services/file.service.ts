@@ -16,6 +16,14 @@ export class FileService {
   getFiles(){
     return this.http.get<vFile[]>(this.apiEndpoint+'/files');
   }
+  getPreSignedUrl(filename:string ,contentType:string ,description:string){
+    //build request
+    return  this.http.post<string>(this.apiEndpoint+'/files/presignupload',{
+      filename:filename,
+      contenttype:contentType,
+      description:description
+    })
+  }
 }
 
 //const DummyData: vFile[]=[{fileName:'Test.jpg',action:'',uploadTime:new Date(),uploadedBy:'Varun Alla'}]
