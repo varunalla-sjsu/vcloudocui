@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { vFile } from '../models/vFile';
 
 import { Observable,of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class FileService {
-
-  constructor() { }
+  fileList!:vFile[];
+  constructor(private http:HttpClient) { }
   getFiles(): Observable<vFile[]>{
     return of(DummyData);
   }
