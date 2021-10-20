@@ -11,12 +11,13 @@ import { FileService } from 'src/app/services/file.service';
 export class FilelistComponent implements OnInit {
 
   dataSource=new MatTableDataSource<vFile>([]);
-  displayColumns:string[]=['fileName','uploadedBy','uploadTime','action'];
+  displayColumns:string[]=['fileName','description','uploadedBy','uploadTime','action'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private fileService: FileService){}
   ngOnInit(): void {
-    
-     this.dataSource=new MatTableDataSource<vFile>([]);
+    this.fileService.getFiles().subscribe((response:vFile[])=>{
+         this.dataSource=new MatTableDataSource<vFile>(response);
+    });
   }
   ngAfterViewInit(){
       this.dataSource.paginator=this.paginator;

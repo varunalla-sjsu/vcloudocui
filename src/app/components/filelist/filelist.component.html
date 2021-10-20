@@ -6,20 +6,24 @@
         <!-- Document Name Column -->
          <ng-container matColumnDef="fileName">
             <th mat-header-cell *matHeaderCellDef> Document Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.origFileName}} </td>
   
           </ng-container>
-      
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  
+          </ng-container>
           <!-- User Name Column -->
           <ng-container matColumnDef="uploadedBy">
             <th mat-header-cell *matHeaderCellDef> Uploaded By </th>
-            <td mat-cell *matCellDef="let element"> {{element.uploadedBy}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.createdby.firstname + " "+ element.createdby.lastname}} </td>
   
           </ng-container>
           <!-- User Name Column -->
           <ng-container matColumnDef="uploadTime">
-            <th mat-header-cell *matHeaderCellDef> Uploaded At </th>
-            <td mat-cell *matCellDef="let element"> {{element.uploadTime.toLocaleDateString()}} {{element.uploadTime.toLocaleTimeString()}} </td>
+            <th mat-header-cell *matHeaderCellDef>Last Uploaded At </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdon  | date: 'MM/dd/yyyy h:mm:ss a'}} </td>
   
           </ng-container>
            <!-- Action Column Column -->
