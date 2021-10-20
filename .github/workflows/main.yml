@@ -1,4 +1,4 @@
-name: VCloudui Prod
+name: vcloudui_prod
 on:
   push:
     branches:
