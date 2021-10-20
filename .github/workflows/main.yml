@@ -13,6 +13,7 @@ jobs:
       NG_APP_REGION: ${{ secrets.NG_APP_REGION }}
       NG_APP_USERPOOLID: ${{ secrets.NG_APP_USERPOOLID }}
       NG_APP_USERPOOLWEBCLIENT: ${{ secrets.NG_APP_USERPOOLWEBCLIENT }}
+      NG_APP_API_URL: ${{ secrets.NG_APP_API_URL }}
     strategy:
       matrix:
         node-version: [12.x]
