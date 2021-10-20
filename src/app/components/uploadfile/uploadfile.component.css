@@ -26,3 +26,6 @@ display: flex;
 .browseBtn{
    align-items: center;
 }
+mat-card{
+    height:80%;
+}

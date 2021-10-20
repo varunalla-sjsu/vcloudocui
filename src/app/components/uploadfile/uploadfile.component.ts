@@ -8,15 +8,15 @@ import { FileService } from 'src/app/services/file.service';
   styleUrls: ['./uploadfile.component.css']
 })
 export class UploadfileComponent implements OnInit {
-
+  description!:string;
   public files: NgxFileDropEntry[] = [];
   constructor(private fileService:FileService) { }
 
   ngOnInit(): void {
   }
-  public uploadFile(description:string){
+  public uploadFile(){
     console.log('upload clicked');
-    description="test description";
+    let description=this.description||"";
     let file:NgxFileDropEntry=this.files[0];
     let filename=file;
     const fileEntry = file.fileEntry as FileSystemFileEntry;
