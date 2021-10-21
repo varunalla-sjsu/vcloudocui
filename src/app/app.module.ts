@@ -23,6 +23,8 @@ import {AmplifyConfig} from './config/aws-exports';
 import { JwtInterceptor } from './jwt.interceptor';
 import { FormsModule } from '@angular/forms';
 
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { UpdateFileComponent } from './modals/update-file/update-file.component';
 Amplify.configure(AmplifyConfig);
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ Amplify.configure(AmplifyConfig);
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    LogoutBtnComponent
+    LogoutBtnComponent,
+    UpdateFileComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ Amplify.configure(AmplifyConfig);
     NgxFileDropModule,
     HttpClientModule,
     AmplifyUIAngularModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,
