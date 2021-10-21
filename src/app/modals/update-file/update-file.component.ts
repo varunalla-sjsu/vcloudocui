@@ -34,9 +34,10 @@ export class UpdateFileComponent implements OnInit {
     let file:NgxFileDropEntry=this.files[0];
     let filename=file;
     const fileEntry = file.fileEntry as FileSystemFileEntry;
-    
+
         fileEntry.file((file: File) => {
-          this.fileService.getPreSignedUrl(this.data.fileid,file.type,'',true).subscribe((psurl:any)=>{
+          console.log("updateing file ",this.vFile.fileid);
+          this.fileService.getPreSignedUrl(this.vFile.fileid,file.type,'',true).subscribe((psurl:any)=>{
             let header = new Headers();
             header.append('Content-Type', file.type);
           //  header.append('Content-Disposition','attachment; filename="'+this.origFileName+'"');
