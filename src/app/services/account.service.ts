@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Auth } from 'aws-amplify';
 import { Observable,of } from 'rxjs';
 import { account, Role } from '../models/account';
 @Injectable({
@@ -9,6 +10,7 @@ export class AccountService {
   private apiEndpoint:string|undefined=process.env.NG_APP_API_URL;
   private laccount!: account;
   constructor(private http:HttpClient) {
+     Auth.currentSession();
     this.http.get<account>(this.apiEndpoint+'/user').subscribe((data)=>{
       this.laccount=data;
      });
