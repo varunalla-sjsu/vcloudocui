@@ -18,11 +18,12 @@ export class LogoutBtnComponent implements OnInit {
   async logout(){
     
     try{
-    await Auth.signOut({global:true});
+    await Auth.signOut();
     this.accountService.clearUser();
     location.reload();
     }
     catch(Err){
+      console.log(Err);
       console.log('Error Signing Out');
     }
   }
