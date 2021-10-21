@@ -16,11 +16,12 @@ export class UpdateFileComponent implements OnInit {
   public files: NgxFileDropEntry[] = [];
   constructor(
     public dialogRef: MatDialogRef<UpdateFileComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: vFile,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
     private fileService: FileService,
     private _snackBar:MatSnackBar
   ) {
-    this.vFile = data;
+    console.log('data', data);
+    this.vFile = data.file as vFile;
   }
 
   ngOnInit() {
@@ -29,24 +30,30 @@ export class UpdateFileComponent implements OnInit {
   closeDialog() {
     this.dialogRef.close({ event: 'close', data: this.fromDialog });
   }
-  uploadFileEvt(lfile: any) {
-    if (lfile.target.files && lfile.target.files[0]) {
-      let file=lfile.target.files[0];
-      this.fileService.getPreSignedUrl(this.data.fileid,file.type,'',true).subscribe((psurl:any)=>{
-        let header = new Headers();
-        header.append('Content-Type', file.type);
-      //  header.append('Content-Disposition','attachment; filename="'+this.origFileName+'"');
-            
-            const formData=new FormData();
-            formData.append('file',file);
-            this.fileService.uploadFile(psurl.url,file,header).subscribe((data:any)=>{
-              console.log('uploaded');
-              this._snackBar.open('File Updated', 'Dismiss');
-              
-            //  this.router.navigate(['/dashboard']);
-            });
-      });
-    }
+  uploadFileEvt() {
+    let file:NgxFileDropEntry=this.files[0];
+    let filename=file;
+    const fileEntry = file.fileEntry as FileSystemFileEntry;
+    
+        fileEntry.file((file: File) => {
+          this.fileService.getPreSignedUrl(this.data.fileid,file.type,'',true).subscribe((psurl:any)=>{
+            let header = new Headers();
+            header.append('Content-Type', file.type);
+          //  header.append('Content-Disposition','attachment; filename="'+this.origFileName+'"');
+                
+                const formData=new FormData();
+                formData.append('file',file);
+                this.fileService.uploadFile(psurl.url,file,header).subscribe((data:any)=>{
+                  console.log('uploaded');
+                  this._snackBar.open('File Updated', 'Dismiss');
+                  
+                //  this.router.navigate(['/dashboard']);
+                });
+          });
+
+        });
+     
+    
   }
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -59,22 +66,6 @@ export class UpdateFileComponent implements OnInit {
 
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
-
-          /**
-          // You could upload it like this:
-          const formData = new FormData()
-          formData.append('logo', file, relativePath)
-
-          // Headers
-          const headers = new HttpHeaders({
-            'security-token': 'mytoken'
-          })
-
-          this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
-          .subscribe(data => {
-            // Sanitized logo returned from backend
-          })
-          **/
 
         });
       } else {

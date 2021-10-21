@@ -1,6 +1,21 @@
 <h2>Update File</h2>
 <div>
-
+    <div fxLayout="column" fxLayout.xs="column">
+        <mat-card fxLayout="row" fxLayoutGap="30px">
+            <div class="child-1">Name:</div> 
+            <div class="child-2">{{vFile.origFileName}}</div> 
+            
+        </mat-card>
+        <mat-card fxLayout="row" fxLayoutGap="30px">
+            <div class="child-1">Description:</div> 
+            <div class="child-2">{{vFile.description}}</div> 
+            
+        </mat-card>
+        <mat-card fxLayout="row" fxLayoutGap="30px">
+            <div class="child-1">createdby:</div> 
+                <div class="child-2">{{vFile.createdby.firstname}} {{vFile.createdby.lastname}}</div> 
+        </mat-card>
+    </div>
     <ngx-file-drop dropZoneLabel="Drop files here" dropZoneClassName="fileDropContainer" (onFileDrop)="dropped($event)" 
         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" [multiple]="false">
             <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
@@ -14,5 +29,7 @@
     </ngx-file-drop>
 </div>
 <div>
+    <button type="button" class="uploadbtn" mat-raised-button color="primary" (click)="uploadFileEvt()">Browse Files</button>
+                    
     <button mat-raised-button (click)="closeDialog()">Close</button>
 </div>

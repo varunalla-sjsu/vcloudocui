@@ -29,13 +29,13 @@
                             <form class="form">
                                 <mat-form-field class="full-width" appearance="fill">
                                   <mat-label>Description</mat-label>
-                                  <textarea matInput placeholder="File Description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
+                                  <textarea matInput placeholder="File Description" class="textarea" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
                                 </mat-form-field>
                               </form>
                         </td>
                     </tr>
                     
-                    <button type="button" class="uploadBtn" mat-raised-button color="primary" (click)="uploadFile()">UploadFile</button>
+                    <button type="button" class="uploadBtn" mat-raised-button color="primary" (click)="uploadFile()">Upload File</button>
                
                 </tbody>
             </table>
