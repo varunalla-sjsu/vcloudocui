@@ -46,7 +46,8 @@ export class UpdateFileComponent implements OnInit {
                 formData.append('file',file);
                 this.fileService.uploadFile(psurl.url,file,header).subscribe((data:any)=>{
                   console.log('uploaded');
-                  this._snackBar.open('File Updated', 'Dismiss');
+                  this.files=[];
+                  this._snackBar.open('File Updated, Wait and Refresh page for file to show ', 'Dismiss');
                   
                 //  this.router.navigate(['/dashboard']);
                 });
