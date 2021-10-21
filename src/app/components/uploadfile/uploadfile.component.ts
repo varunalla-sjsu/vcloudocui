@@ -35,7 +35,7 @@ export class UploadfileComponent implements OnInit {
             formData.append('file',file);
             this.fileService.uploadFile(psurl.url,file,header).subscribe((data:any)=>{
               console.log('uploaded');
-              this._snackBar.open('File Uploaded. Please refresh and navigate to dashboard screem', 'Dismiss',{duration:10});
+              this._snackBar.open('File Uploaded. Please refresh and navigate to dashboard screem', 'Dismiss',{duration:10000});
               this.description='';
               this.files=[];
               //this.router.navigate(['/dashboard']);
