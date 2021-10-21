@@ -18,11 +18,11 @@ export class AccountService {
      });
   }
    getLoggedInUser(): Observable<account>{
-     if(this.loggedIn){
+     if(!this.loggedIn){
         return this.http.get<account>(this.apiEndpoint+'/user');
      }
      else
-     return of(this.laccount);
+      return of(this.laccount);
   }
   helloWorld(){
     this.http.get(this.apiEndpoint+'/home').subscribe(data=>console.log(data),err=>console.log(err));

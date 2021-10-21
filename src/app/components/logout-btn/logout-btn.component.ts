@@ -18,5 +18,6 @@ export class LogoutBtnComponent implements OnInit {
   logout(){
     this.accountService.clearUser();
     Auth.signOut({global:true});
+    location.reload();
   }
 }
