@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Auth } from 'aws-amplify';
 import { account, Role } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -14,5 +15,9 @@ export class LogoutBtnComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.user=await this.accountService.getLoggedInUser().toPromise(); 
   }
-
+  logout(){
+    this.accountService.clearUser();
+    Auth.signOut({global:true});
+    location.reload();
+  }
 }
