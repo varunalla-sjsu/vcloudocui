@@ -37,6 +37,11 @@ export class UpdateFileComponent implements OnInit {
 
         fileEntry.file((file: File) => {
           console.log("updateing file ",this.vFile.fileid);
+          if(this.vFile.origFileName!=file.name){
+
+            this._snackBar.open('please select file that has same name', 'Dismiss');
+            return;
+          }
           this.fileService.getPreSignedUrl(this.vFile.fileid,file.type,'',true).subscribe((psurl:any)=>{
             let header = new Headers();
             header.append('Content-Type', file.type);
