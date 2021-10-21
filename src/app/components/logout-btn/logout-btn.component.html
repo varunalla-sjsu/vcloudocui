@@ -6,7 +6,7 @@
 </button>
 <div class="logout">
 <mat-menu #menu="matMenu" >
-    <amplify-sign-out></amplify-sign-out>
+    <amplify-sign-out handleAuthStateChange="logoutevent()"></amplify-sign-out>
     <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>
 </div>
