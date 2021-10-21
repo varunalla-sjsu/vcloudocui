@@ -27,6 +27,9 @@
             </ng-template>
             
     </ngx-file-drop>
+    <div *ngFor="let item of files; let i=index">
+        <td><strong>File: {{ item.relativePath }}</strong></td>
+    </div>
 </div>
 <div>
     <button type="button" class="uploadbtn" mat-raised-button color="primary" (click)="uploadFileEvt()">Upload</button>
