@@ -1,0 +1,18 @@
+<h2>Update File</h2>
+<div>
+
+    <ngx-file-drop dropZoneLabel="Drop files here" dropZoneClassName="fileDropContainer" (onFileDrop)="dropped($event)" 
+        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" [multiple]="false">
+            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+               <div class="container">
+                <!--    <p class="dropzone">Drop File here to upload</p>-->
+                    <button type="button" class="browseBtn" mat-raised-button color="primary" (click)="openFileSelector()">Browse Files</button>
+                    
+                </div>
+            </ng-template>
+            
+    </ngx-file-drop>
+</div>
+<div>
+    <button mat-raised-button (click)="closeDialog()">Close</button>
+</div>

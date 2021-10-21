@@ -6,6 +6,7 @@ import { FileService } from 'src/app/services/file.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UpdateFileComponent } from 'src/app/modals/update-file/update-file.component';
 
 
 
@@ -81,10 +82,15 @@ export class FilelistComponent implements OnInit {
     });
   }
   openDialog(vfile:vFile) {
-    this.dialog.open(UpdateDialog, {
-      data: {
-        file:vfile
-      }
+    const dialogRef = this.dialog.open(UpdateFileComponent, {
+      width: '250px',
+      backdropClass: 'custom-dialog-backdrop-class',
+      panelClass: 'custom-dialog-panel-class',
+      data: { file: vfile }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
     });
   }
   updateFile(filename:string){

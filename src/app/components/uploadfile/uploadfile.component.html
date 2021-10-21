@@ -10,10 +10,7 @@
         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" [multiple]="false">
             <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                <div class="container">
-                <div class="emptyline">
-                <span style="display: none;">Hidden Space</span>
-                </div>
-                    <p class="dropzone">Drop File here to upload</p>
+                <!--    <p class="dropzone">Drop File here to upload</p>-->
                     <button type="button" class="browseBtn" mat-raised-button color="primary" (click)="openFileSelector()">Browse Files</button>
                     
                 </div>
@@ -21,31 +18,23 @@
             
         </ngx-file-drop>
     </div>
-    <div fxLayout="row" class="upload-table">
-   
-        <span style="visibility:none ;">Hidden Space</span>
-    </div>
         <div fxLayout="row" class="upload-table">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
                 <tbody class="upload-name-style">
+                    <tr *ngFor="let item of files; let i=index">
+                        <td><strong>File: {{ item.relativePath }}</strong></td>
+                    </tr>
                     <tr>
                         <td>
                             <form class="form">
                                 <mat-form-field class="full-width" appearance="fill">
                                   <mat-label>Description</mat-label>
-                                  <textarea matInput placeholder="File Description" [(ngModel)]="description"></textarea>
+                                  <textarea matInput placeholder="File Description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}"></textarea>
                                 </mat-form-field>
                               </form>
                         </td>
                     </tr>
-                    <tr *ngFor="let item of files; let i=index">
-                        <td><strong>{{ item.relativePath }}</strong></td>
-                    </tr>
+                    
                     <button type="button" class="uploadBtn" mat-raised-button color="primary" (click)="uploadFile()">UploadFile</button>
                
                 </tbody>
