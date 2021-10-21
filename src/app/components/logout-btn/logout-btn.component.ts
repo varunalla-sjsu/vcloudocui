@@ -15,9 +15,19 @@ export class LogoutBtnComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.user=await this.accountService.getLoggedInUser().toPromise(); 
   }
-  logout(){
+  async logout(){
+    
+    try{
+    await Auth.signOut({global:true});
     this.accountService.clearUser();
-    Auth.signOut({global:true});
     location.reload();
+    }
+    catch(Err){
+      console.log('Error Signing Out');
+    }
   }
+
+logoutevent(state:any){
+ console.log(state); 
+}
 }
